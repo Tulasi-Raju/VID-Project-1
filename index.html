@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Viz Dashboard</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <style>
+        h2 {
+            text-align: center;  
+            margin-top: 20px;    
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .viz-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        svg {
+            border: 1px solid #ccc;
+        }
+        .tooltip {
+            position: absolute;
+            background: white;
+            padding: 5px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            pointer-events: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Dashboard for Exploring Health and Risk Factors</h2>
+
+    <label for="x-axis">X-axis:</label>
+    <select id="x-axis"></select>
+
+    <label for="y-axis">Y-axis:</label>
+    <select id="y-axis"></select>
+
+    <label for="attribute3">Choropleth Map Attribute:</label>
+    <select id="attribute3"></select>
+
+    <div class="container">
+        <div class="viz-container">
+            <h3>Scatter Plot</h3>
+            <svg id="scatterplot" width="500" height="400"></svg>
+        </div>
+        <div class="viz-container">
+            <h3>Bar Chart</h3>
+            <svg id="barchart" width="500" height="400"></svg>
+        </div>
+        <div class="viz-container">
+            <h3>Choropleth Map</h3>
+            <div class="viz"></div>
+        </div>
+    </div>
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <script src="script.js"></script>
+    <script src="choropleth.js"></script>
+</body>
+</html>
